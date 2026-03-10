@@ -5,6 +5,7 @@
 package Binario;
 
 import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -91,11 +92,11 @@ public class Empresa {
                     default:
                         System.out.println("opcion invalida");
                 }
+            } catch (InputMismatchException e) {
+                System.out.println("Error de entrada, vuelve a ingresar una opcion valida (1, 2, 3, 4, 5, 6, 7): ");
+                scanner.next();
             } catch (IOException e) {
                 System.out.println("Error de archivo");
-            } catch (IllegalArgumentException e) {
-                System.out.println("Error de entrada, vuelve a ingresar una opcion valida (1, 2, 3, 4, 5, 6, 7): ");
-                scanner.nextInt();
             }
             
         } while (op != 7);
